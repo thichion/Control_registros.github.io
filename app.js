@@ -122,6 +122,35 @@ document.addEventListener('DOMContentLoaded', async () => {
             showMessage("⏳ Procesando rechazo...", "info");
 
             // Eliminar registro de la tabla
+            const { data, error } = await supabase
+                .from("Registro_servicio_social")
+                .select("*")
+                .eq("id_registro", solicitudId)
+                .single(); // 👈 trae un objeto, no array
+
+                if (error) {
+                console.error("Error al seleccionar:", error);
+                } else if (data) {
+                // 2. Insertar la misma fila (puedes modificar campos si quieres)
+                const { data: inserted, error: insertError } = await supabase
+                    .from("Registro_archivos_soporte")
+                    .insert([
+                    {
+                        id:data.id_registro,
+                        Grado:data.Grado,
+                        Nombre:data.Nombre,
+                        Nombrearchivo:data.Nombrearchivo,
+                        Url:data.Url,
+                        Correo:data.Correo
+                    }
+                    ])
+                    .select();
+                if (insertError) {
+                    console.error("Error al insertar:", insertError);
+                } else {
+                    console.log("Fila insertada:", inserted);
+                }
+                }
             const { error: deleteError } = await supabase
                .from("Registro_servicio_social")
                .delete()
