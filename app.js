@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (btnVolver) btnVolver.style.display = "none";
             if (btnAceptar) btnAceptar.style.display = "inline-block";
             if (btnRechazar1) btnRechazar1.style.display = "inline-block";
+            razonTextarea.value = "";
         });
 
         // --- Botón Rechazar2: valida y procesa ---
@@ -219,5 +220,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 });
+
 
 
