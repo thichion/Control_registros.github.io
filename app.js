@@ -27,7 +27,7 @@ function hideButtons() {
     const btnAceptar = document.getElementById("btnAceptar");
     const btnRechazar1 = document.getElementById("btnRechazar1");
     if (btnAceptar) btnAceptar.style.display = 'none';
-    if (btnRechazar) btnRechazar.style.display = 'none';
+    if (btnRechazar1) btnRechazar.style.display = 'none';
     if (dynamicLink) dynamicLink.style.display = 'none';
     
 }
@@ -184,5 +184,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 });
+
 
 
