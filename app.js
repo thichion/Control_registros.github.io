@@ -1,4 +1,4 @@
-    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";   
+        import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";   
 
     const supabaseUrl = "https://otvcwvnlndxtzzmeqtcw.supabase.co";
     const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im90dmN3dm5sbmR4dHp6bWVxdGN3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3NTg0OTQsImV4cCI6MjA2MzMzNDQ5NH0.psGUAZjKc_Ic9CFeumOIwS5DNWkgtABNZlcN0iig0cE";
@@ -139,7 +139,16 @@
                 if (btnRechazar1) btnRechazar1.style.display = "none";
                 if (btnAceptar) btnAceptar.style.display = "none";
             });
+            btnVolver?.addEventListener("click", () => {
+                // Ocultar los elementos de rechazo y el propio botón Volver
+                if (btnRechazar2) btnRechazar2.style.display = "none";
+                if (razonForm) razonForm.style.display = "none";
+                if (btnVolver) btnVolver.style.display = "none";
 
+                // Volver a mostrar los botones originales
+                if (btnAceptar) btnAceptar.style.display = "inline-block";
+                if (btnRechazar1) btnRechazar1.style.display = "inline-block";
+            });
             // --- Lógica de rechazo ahora en btnRechazar2 ---
             btnRechazar2?.addEventListener("click", async () => {
                 showMessage("⏳ Procesando rechazo...", "info");
