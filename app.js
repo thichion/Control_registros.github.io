@@ -25,7 +25,7 @@ function toggleStaticMessage(elementId) {
 
 function hideButtons() {
     const btnAceptar = document.getElementById("btnAceptar");
-    const btnRechazar = document.getElementById("btnRechazar");
+    const btnRechazar1 = document.getElementById("btnRechazar1");
     if (btnAceptar) btnAceptar.style.display = 'none';
     if (btnRechazar) btnRechazar.style.display = 'none';
     if (dynamicLink) dynamicLink.style.display = 'none';
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
 
-        btnRechazar?.addEventListener("click", async () => {
+        btnRechazar1?.addEventListener("click", async () => {
             showMessage("⏳ Procesando rechazo...", "info");
 
             // Eliminar registro de la tabla
@@ -184,3 +184,4 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 });
+
