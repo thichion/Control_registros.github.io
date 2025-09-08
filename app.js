@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log("ℹ️ Solicitud pendiente.");
 
         const btnAceptar = document.getElementById("btnAceptar");
-        const btnRechazar = document.getElementById("btnRechazar");
+        const btnRechazar1 = document.getElementById("btnRechazar1");
 
         btnAceptar?.addEventListener("click", async () => {
             showMessage("⏳ Procesando aceptación...", "info");
@@ -184,4 +184,5 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 });
+
 
