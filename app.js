@@ -115,6 +115,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (btnVolver) btnVolver.style.display = "none";
         if (razonForm) razonForm.style.display = "none";
 
+        // --- Botón Aceptar ---
         btnAceptar?.addEventListener("click", async () => {
             showMessage("⏳ Procesando aceptación...", "info");
             const { error: updateError } = await supabase
@@ -132,7 +133,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
 
-        // --- Mostrar formulario y btnRechazar2 al presionar btnRechazar1 ---
+        // --- Botón Rechazar1: muestra el form ---
         btnRechazar1?.addEventListener("click", () => {
             if (btnRechazar2) btnRechazar2.style.display = "inline-block";
             if (btnVolver) btnVolver.style.display = "inline-block";
@@ -141,28 +142,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (btnAceptar) btnAceptar.style.display = "none";
         });
 
-        // --- Botón Volver solo funciona si hay texto en el textarea ---
+        // --- Botón Volver: simplemente regresa a los botones originales ---
         btnVolver?.addEventListener("click", () => {
-            const texto = razonTextarea ? razonTextarea.value.trim() : "";
-            if (!texto) {
-                showMessage("❌ Inserte una razón antes de volver.", "error");
-                return;
-            }
-            // Ocultar los elementos de rechazo y el propio botón Volver
             if (btnRechazar2) btnRechazar2.style.display = "none";
             if (razonForm) razonForm.style.display = "none";
             if (btnVolver) btnVolver.style.display = "none";
-
-            // Volver a mostrar los botones originales
             if (btnAceptar) btnAceptar.style.display = "inline-block";
             if (btnRechazar1) btnRechazar1.style.display = "inline-block";
         });
 
-        // --- Lógica de rechazo ahora en btnRechazar2 ---
+        // --- Botón Rechazar2: valida y procesa ---
         btnRechazar2?.addEventListener("click", async () => {
             const razonTexto = razonTextarea ? razonTextarea.value.trim() : "";
 
-            // Validación: no puede estar vacío
+            // Validación solo aquí
             if (!razonTexto) {
                 showMessage("❌ Inserte una razón para continuar.", "error");
                 return;
@@ -226,3 +219,5 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 });
+
+
